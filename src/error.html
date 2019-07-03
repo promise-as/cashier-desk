@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>错误</title>
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.7/css/bootstrap-dialog.min.css">
+  <link rel="stylesheet" href="css/index.css">
+  <!--红色主题-->
+  <!--<link rel="stylesheet" href="css/red.css">-->
+  <!--绿色主题-->
+  <!--<link rel="stylesheet" href="css/green.css">-->
+  <!--紫色主题-->
+  <!--<link rel="stylesheet" href="css/violet.css">-->
+  <!--黄色主题-->
+  <!--<link rel="stylesheet" href="css/yellow.css">-->
+
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.7/js/bootstrap-dialog.min.js"></script>
+  <script src="js/dialog.js"></script>
+</head>
+
+<body>
+
+<div id="app">
+  <div class="pay-warp">
+
+    <!--导航条-->
+    <div class="nav-bar">
+      <div class="container">
+        <a href="javascript:;" class="logo"></a>
+
+        <span class="logo-text">全球领先的数字资产兑换平台</span>
+
+        <div class="phone">
+          <i class="phone-icon"></i>
+          <div class="phone-number">020-253 2564</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 商户 -->
+    <form action="#" class="merchant-warp">
+      <div class="container">
+        <div class="merchant-header">
+          <div class="header-title">
+            <span>支付USDT</span>
+          </div>
+        </div>
+
+        <!--订单 提交多次, 信息有误, 参数错误-->
+        <div class="submit-more">
+          <p class="remit-text">[10551] 您提交的次数有点多，请您休息一会儿~</p>
+        </div>
+        <div class="order-msg-error">
+          <p class="remit-text">[10552] 您提交的订单信息有误</p>
+        </div>
+        <div class="param-error">
+          <p class="remit-text">[10553] 您提交的订单参数错误</p>
+        </div>
+
+        <!-- 订单信息 -->
+        <div class="order-msg">
+          <div class="order-header">
+            <div class="header-title">
+              <span>订单信息</span>
+            </div>
+          </div>
+
+          <div class="order-content">
+            <li>
+              <span>客户信息：</span>
+              lavender
+            </li>
+            <li>
+              <span>支付单号：</span>
+              WIRES0022020209901
+            </li>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <!-- 进行中的订单 -->
+    <div class="progress-order">
+      <div class="container">
+        <div class="order-header">
+          <div class="header-title">
+            <span>您还有以下进行中的订单</span>
+          </div>
+        </div>
+        <!-- 进行中的订单 tab -->
+        <div class="order-tab">
+          <li class="row tab-head">
+            <div class="col-xs-3 col-md-4">支付订单</div>
+            <div class="col-xs-3 col-md-2">时间</div>
+            <div class="col-xs-3 col-md-2">USDT数量</div>
+            <div class="col-md-1">币种</div>
+            <div class="col-md-1">金额</div>
+            <div class="col-xs-3 col-md-2">相关操作</div>
+          </li>
+          <li class="row tab-content">
+            <div class="col-xs-3 col-md-4">
+              WIRES0001WIRES0001WIRES0001WIRES0001WIRES0001
+            </div>
+            <div class="col-xs-3 col-md-2">2019-02-26 17:12</div>
+            <div class="col-xs-3 col-md-2">46.54</div>
+            <div class="col-md-1">CNY</div>
+            <div class="col-md-1">314.5</div>
+            <div class="col-xs-3 col-md-2">
+              <div class="examine">
+                <a href="javascript:;">查看</a>
+              </div>
+            </div>
+          </li>
+        </div>
+      </div>
+    </div>
+
+    <!--联合担保-->
+    <div class="guarantee">
+      <div class="container">
+        <div class="row">
+          <div class="guarantee-item col-sm-4">
+            <div class="item-content">
+              <div class="content-icon"></div>
+              <div class="content-detail">
+                <div class="detail-title">联合担保</div>
+                <p class="detail-text">
+                  本次交易由COINPAY和服务商提供联合担保
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="guarantee-item col-sm-4">
+            <div class="item-content">
+              <div class="content-icon"></div>
+              <div class="content-detail">
+                <div class="detail-title">保证金</div>
+                <p class="detail-text">
+                  服务商已向COINPAY缴纳足额保证金
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="guarantee-item col-sm-4">
+            <div class="item-content">
+              <div class="content-icon"></div>
+              <div class="content-detail">
+                <div class="detail-title">
+                  托管锁定
+                </div>
+                <p class="detail-text">
+                  服务商出售USDT已托管锁定在COINPAY
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="container">
+        Copyrights © 2018. All Rights
+        Reserved by -istpaytech.com
+      </div>
+    </footer>
+  </div>
+
+  <!-- 跳转 USDT购买 -->
+  <div class="skip">
+    <div class="mask"></div>
+    <div class="wrap">
+      <div class="content">
+        自动为您跳转至
+        <span>USDT购买</span>
+        页面...
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+
+</html>
+<script src="js/index.js"></script>
+<script>
+  $(function () {
+    $(".submit").click(function () {
+      HSJ.util.confirm.common.suc({
+        message: "是否确认向商户支付USDT",
+        ok_callback: function () {
+          $('.skip').css('display', 'block')
+          window.location.href = "buy-USDT.html"
+        },
+        cancel_callback: function () {
+          // 取消
+        }
+      })
+    })
+  })
+</script>

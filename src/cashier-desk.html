@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>收银台</title>
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.7/css/bootstrap-dialog.min.css">
+  <link rel="stylesheet" href="css/index.css">
+  <!--红色主题-->
+  <!--<link rel="stylesheet" href="css/red.css">-->
+  <!--绿色主题-->
+  <!--<link rel="stylesheet" href="css/green.css">-->
+  <!--紫色主题-->
+  <!--<link rel="stylesheet" href="css/violet.css">-->
+  <!--黄色主题-->
+  <!--<link rel="stylesheet" href="css/yellow.css">-->
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+
+  <!--<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>-->
+  <script src="https://cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+
+  <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.7/js/bootstrap-dialog.min.js"></script>-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.29/js/bootstrap-dialog.min.js"></script>
+  <script src="js/dialog.js"></script>
+</head>
+
+<body>
+
+<div id="app">
+  <div class="pay-warp">
+    <!--导航条-->
+    <div class="nav-bar">
+      <div class="container">
+        <a href="javascript:;" class="logo"></a>
+
+        <span class="logo-text">全球领先的数字资产兑换平台</span>
+
+        <div class="phone">
+          <i class="phone-icon"></i>
+          <div class="phone-number">020-253 2564</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 商户 -->
+    <form action="#" class="merchant-warp">
+      <div class="container">
+
+        <!--蒙版-->
+        <div class="main-mask">
+          <div class="mask"></div>
+          <!--已转账-->
+          <div class="wrap have-transfer">
+            <div class="remit-modal">
+              <div class="model-close">
+                <i class="close-btn"></i>
+              </div>
+              <div class="model-content">
+                <div class="content-remind">
+                  <i class="has-remind"></i>
+                  <span>
+                    已提醒服务商收款
+                  </span>
+                </div>
+                <p>
+                  请您耐心等待服务商确认收款信息
+                  该服务商平均确认时长 <span>00:00:00</span>
+                </p>
+                <div class="content-btn">我知道了</div>
+              </div>
+            </div>
+          </div>
+          <!--未转账-->
+          <div class="wrap no-transfer">
+            <div class="remit-modal">
+              <div class="model-close">
+                <i class="close-btn hiddenBtn"></i>
+              </div>
+              <div class="model-content untransfer-content">
+                <div class="content-remind">
+                  <i class="untransfer-icon"></i>
+                  <span class="untransfer-text">
+                    若您尚未转账给服务商 请不要提醒服务商确认
+                  </span>
+                </div>
+                <p class="untransfer-p">以免造成充值失败和不必要的纠纷。</p>
+                <div class="untransfer-btnwarp">
+                  <a class="btn btn1"
+                     href="javascript:;">确认已转账</a>
+                  <a class="btn btn2"
+                     href="javascript:;">尚未转账</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--重复点击-->
+          <div class="wrap repeat-click">
+            <div class="remit-modal">
+              <div class="model-close">
+                <i class="close-btn"></i>
+              </div>
+              <div class="model-content repeat-click">
+                <i class="repeat-icon"></i>
+                <p>[10509]订单已经点击[我已向服务商转账], 请勿重复点击</p>
+                <div class="content-btn">确定</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--支付金额-->
+        <div class="merchant-header">
+          <div class="header-content">
+            <div class="content-sum">
+              <label for="number">
+                <span>支付金额：</span>￥
+                <input type="text" id="number" value="6000" readonly unselectable="on">
+              </label>
+              <label for="payer">
+                <span>付款人姓名：</span>
+                <input type="text" id="payer" value="张三" readonly unselectable="on">
+              </label>
+            </div>
+
+            <!--支付倒计时-->
+            <div class="pay-countdown" id="payCountdown">
+              <span class="countdown-text">支付倒计时：</span>
+              <span class="countdown-time" id="countDownTimer">15:00</span>
+            </div>
+            <div class="content-hint pay-remit">
+              <i class="hint-icon"></i>
+              <p>温馨提示：您购买的
+                <strong class="show-hint">USDT</strong>
+                已被平台锁定，服务商无法提走，请放心支付</p>
+              <div class="remit-text">
+                <em class="triangle"></em>
+                USDT是基于在Bitcoin Blockchain上发布的Omni LayerProtocol的数字资产。
+                其最大的特点是：与美元1:1锚定，是全球流动性仅次于比特币的加密数字资产。
+                <strong class="fewer">收起</strong>
+              </div>
+            </div>
+
+            <!--支付已超时-->
+            <div class="overtime" id="overTime">
+              <div class="countdown-icon"></div>
+              <span class="countdown-time">支付已超时</span>
+            </div>
+            <div class="content-hint overtime-text">
+              <i class="hint-icon"></i>
+              <p>温馨提示：请重新提交入金申请</p>
+            </div>
+
+            <!--已提醒服务商收款-->
+            <div class="already-gathering" id="alreadyGathering">
+              <div class="countdown-icon"></div>
+              <span class="already-text">已提醒服务商收款</span>
+            </div>
+          </div>
+        </div>
+
+        <!--支付方式-->
+        <div class="payment">
+          <div class="payment-header">
+            <div class="header-title">
+              <span>支付方式</span>
+            </div>
+          </div>
+
+          <!--三种方式-->
+          <div class="payment-tab">
+            <div class="tab-head">
+              <!--银行, 支付宝, 微信-->
+              <div class="head-item tab-active">
+                <i class="payment-icon"></i>
+                <span>银行转账</span>
+              </div>
+              <div class="head-item">
+                <i class="payment-icon"></i>
+                <span>支付宝扫码</span>
+              </div>
+              <div class="head-item">
+                <i class="payment-icon"></i>
+                <span>微信扫码</span>
+              </div>
+            </div>
+
+            <!--银行-->
+            <div class="tab-content tab-active">
+              <div class="content-usermsg">
+                <div class="usermsg-hint">
+                  <i class="hint-icon"></i>
+                  <p class="hint-text">提示：请您
+                    <strong>转帐至服务商银行账户</strong></p>
+                </div>
+                <li class="usermsg-detail">
+                  <label for="username">
+                    <span>用户名：</span>
+                    <input value="李四" id="username" readonly unselectable="on">
+                  </label>
+                  <span class="copy"
+                     data-clipboard-target="#username">复制</span>
+                </li>
+                <li class="usermsg-detail">
+                  <label for="bank-info">
+                    <span>银行信息：</span>
+                    <input value="招商银行深圳车公庙支行" id="bank-info" readonly unselectable="on">
+                  </label>
+                  <span class="copy"
+                     data-clipboard-target="#bank-info">复制</span>
+                </li>
+                <li class="usermsg-detail">
+                  <label for="bank-account">
+                    <span>银行账号：</span>
+                    <input value="6222 0000 0000 0000 000" id="bank-account" readonly unselectable="on">
+                  </label>
+                  <span class="copy"
+                     data-clipboard-target="#bank-account">复制</span>
+                </li>
+              </div>
+              <div class="content-remark">
+                <div class="remark-detail">
+                  <label class="detail">
+                    <span>转账备注码：</span>
+                    897524
+                  </label>
+                  <p>转账时备注该号码，以便服务商快速确认。</p>
+                </div>
+              </div>
+              <!--银行种类-->
+              <div class="bank-types">
+                <label class="types-item bank-active">
+                  <a href="https://mybank.icbc.com.cn/icbc/newperbank/perbank3/frame/frame_index.jsp"></a>
+                </label>
+                <label class="types-item">
+                  <a href="http://www.ccb.com/cn/ebank/wsyh_products_list.html"></a>
+                </label>
+                <label class="types-item">
+                  <a href="http://www.boc.cn/"></a>
+                </label>
+                <label class="types-item">
+                  <a href="https://www.cmbchina.com"></a>
+                </label>
+                <label class="types-item">
+                  <a href="http://www.abchina.com/cn/"></a>
+                </label>
+                <label class="types-item">
+                  <a href="http://www.bankcomm.com/BankCommSite/shtml/simple/cn/3299/list.shtml?channelId=3291"></a>
+                </label>
+              </div>
+
+              <div class="usermsg-hint">
+                <i class="hint-icon"></i>
+                <p class="hint-text">
+                  提示：支付完成后请点击<strong>【提醒服务商收款】</strong>按钮。
+                </p>
+              </div>
+              <div class="hint-btn">
+                <a class="btn1" href="buy-USDT.html">上一步</a>
+                <input class="btn2"
+                       type="button" value="提醒服务商收款">
+              </div>
+              <!--已提醒服务商收款-->
+              <div class="has-remind">
+                <input disabled="disabled"
+                       type="button" value="已提醒服务商收款">
+              </div>
+            </div>
+
+            <!--支付宝-->
+            <div class="tab-content">
+              <div class="content-usermsg">
+                <div class="usermsg-hint">
+                  <i class="hint-icon"></i>
+                  <p class="hint-text">提示：若交易金额
+                    <strong>大于￥50000</strong>，请使用
+                    <strong>银行转账</strong>方式付款。</p>
+                </div>
+
+                <!--支付宝二维码-->
+                <div class="alipayQRcode">
+                  <i class="alipay-icon"></i>
+                  <div class="alipay-text">
+                    <i class="scan"></i>
+                    <span>打开手机支付宝</span><br/>
+                    <span>扫一扫继续支付</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="usermsg-hint">
+                <i class="hint-icon"></i>
+                <p class="hint-text">
+                  提示：支付完成后请点击<strong>【提醒服务商收款】</strong>按钮。
+                </p>
+              </div>
+
+              <div class="hint-btn alipay-btn">
+                <a class="btn1" href="buy-USDT.html">上一步</a>
+                <input class="btn2"
+                       type="button" value="提醒服务商收款">
+              </div>
+              <div class="has-remind">
+                <input disabled="disabled"
+                       type="button" value="已提醒服务商收款">
+              </div>
+            </div>
+
+            <!--微信-->
+            <div class="tab-content">
+              <div class="content-usermsg">
+                <div class="usermsg-hint">
+                  <i class="hint-icon"></i>
+                  <p class="hint-text">提示：若交易金额
+                    <strong>大于￥50000</strong>，请使用
+                    <strong>银行转账</strong>方式付款。</p>
+                </div>
+
+                <!--微信二维码-->
+                <div class="alipayQRcode">
+                  <i class="alipay-icon"></i>
+                  <div class="alipay-text">
+                    <i class="scan"></i>
+                    <span>打开手机微信</span><br/>
+                    <span>扫一扫继续支付</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="usermsg-hint">
+                <i class="hint-icon"></i>
+                <p class="hint-text">
+                  提示：支付完成后请点击<strong>【提醒服务商收款】</strong>按钮。
+                </p>
+              </div>
+              <div class="hint-btn alipay-btn">
+                <a class="btn1" href="buy-USDT.html">上一步</a>
+                <input class="btn2"
+                       type="button" value="提醒服务商收款">
+              </div>
+              <div class="has-remind">
+                <input disabled="disabled"
+                       type="button" value="已提醒服务商收款">
+              </div>
+            </div>
+
+          </div>
+
+          <!--服务商信息 PC端-->
+          <div class="facilitator-msg">
+            <div class="payment-header">
+              <div class="header-title">
+                <span>服务商信息</span>
+              </div>
+            </div>
+
+            <div class="facilitator-content facilitator-pc">
+              <li>
+                <label>
+                  <span>服务商名称：</span>
+                  <input type="text" value="车国秀" readonly unselectable="on">
+                </label>
+
+                <i class="content-icon"></i>
+                <i class="content-icon"></i>
+              </li>
+              <li>
+                <label>
+                  <span>服务次数：</span>
+                  <input type="text" value="1000" readonly unselectable="on">
+                </label>
+              </li>
+              <li>
+                <label>
+                  <span>平均确认时长：</span>
+                  <input type="text" value="00:05:00" readonly unselectable="on">
+                </label>
+              </li>
+            </div>
+          </div>
+
+          <!--支付提醒 PC端-->
+          <div class="main-remind">
+            <div class="payment-header">
+              <div class="header-title">
+                <span>支付提醒</span>
+              </div>
+            </div>
+
+            <div class="remind-content">
+              <p>
+                1、请使用实名制的银行卡、支付宝、微信等进行转账。
+              </p>
+              <p>
+                2、若交易金额大于￥50000，
+                法定节假日或工作日17:00点以后汇款到银行卡可能造成汇款不及时，
+                请分批支付（单笔支付金额小于￥50000）保证及时到账，
+                若未及时到账，服务商有权拒绝。
+              </p>
+              <p>
+                3、凌晨12点到早上6点可能会导致服务商确认到账延迟，
+                请尽量在其他时间内转账，
+                在此时间内转账造成的确认延迟引发的结果，服务商概不负责。
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!--支付提醒 移动端-->
+        <div class="main-remind">
+          <div class="payment-header">
+            <div class="header-title">
+              <span>支付提醒</span>
+            </div>
+          </div>
+
+          <div class="remind-content">
+            <p>
+              1、请使用实名制的银行卡、支付宝、微信等进行转账。
+            </p>
+            <p>
+              2、若交易金额大于￥50000，
+              法定节假日或工作日17:00点以后汇款到银行卡可能造成汇款不及时，
+              请分批支付（单笔支付金额小于￥50000）保证及时到账，
+              若未及时到账，服务商有权拒绝。
+            </p>
+            <p>
+              3、凌晨12点到早上6点可能会导致服务商确认到账延迟，
+              请尽量在其他时间内转账，
+              在此时间内转账造成的确认延迟引发的结果，服务商概不负责。
+            </p>
+          </div>
+        </div>
+
+        <!--服务商信息 移动端-->
+        <div class="facilitator-msg">
+          <div class="payment-header">
+            <div class="header-title">
+              <span>服务商信息</span>
+              <em class="unfold"></em>
+            </div>
+          </div>
+
+          <div class="facilitator-content">
+            <li>
+              <label>
+                <span>服务商名称：</span>
+                <input type="text" value="车国秀" readonly unselectable="on">
+              </label>
+            </li>
+            <li>
+              <label>
+                <span>服务次数：</span>
+                <input type="text" value="1000" readonly unselectable="on">
+              </label>
+            </li>
+            <li>
+              <label>
+                <span>平均确认时长：</span>
+                <input type="text" value="00:05:00" readonly unselectable="on">
+              </label>
+            </li>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <!-- 进行中的订单 PC端 -->
+    <div class="progress-order-pc">
+      <div class="container">
+        <div class="order-header">
+          <div class="header-title">
+            <span>您还有以下进行中的订单</span>
+          </div>
+        </div>
+        <!-- 进行中的订单 tab -->
+        <div class="order-tab">
+          <li class="row tab-head">
+            <div class="col-xs-3 col-md-4">支付订单</div>
+            <div class="col-xs-3 col-md-2">时间</div>
+            <div class="col-xs-3 col-md-2">USDT数量</div>
+            <div class="col-md-1">币种</div>
+            <div class="col-md-1">金额</div>
+            <div class="col-xs-3 col-md-2">相关操作</div>
+          </li>
+          <li class="row tab-content">
+            <div class="col-xs-3 col-md-4">
+              WIRES0001WIRES0001WIRES0001WIRES0001WIRES0001
+            </div>
+            <div class="col-xs-3 col-md-2">2019-02-26 17:12</div>
+            <div class="col-xs-3 col-md-2">46.54</div>
+            <div class="col-md-1">CNY</div>
+            <div class="col-md-1">314.5</div>
+            <div class="col-xs-3 col-md-2">
+              <div class="examine">
+                <a href="javascript:;">查看</a>
+              </div>
+            </div>
+          </li>
+        </div>
+      </div>
+    </div>
+
+    <!-- 进行中的订单 移动端-->
+    <div class="progress-order">
+      <div class="container">
+        <div class="order-header">
+          <div class="header-title">
+            <span>您还有以下进行中的订单</span>
+
+            <em class="unfold"></em>
+          </div>
+        </div>
+        <!-- 进行中的订单 tab -->
+        <div class="order-tab mobile-tab">
+          <li class="row tab-head">
+            <div class="col-xs-3 col-md-4">支付订单</div>
+            <div class="col-xs-3 col-md-2">时间</div>
+            <div class="col-xs-3 col-md-2">USDT数量</div>
+            <div class="col-md-1">币种</div>
+            <div class="col-md-2">金额</div>
+            <div class="col-xs-3 col-md-2">相关操作</div>
+          </li>
+          <li class="row tab-content">
+            <div class="col-xs-3 col-md-4">
+              WIRES0001WIRES0001WIRES0001WIRES0001WIRES0001
+            </div>
+            <div class="col-xs-3 col-md-2">2019-02-26 17:12</div>
+            <div class="col-xs-3 col-md-2">46.54</div>
+            <div class="col-md-1">CNY</div>
+            <div class="col-md-1">314.5</div>
+            <div class="col-xs-3 col-md-2">
+              <div class="examine">
+                <a href="javascript:;">查看</a>
+              </div>
+            </div>
+          </li>
+        </div>
+      </div>
+    </div>
+
+    <!--联合担保-->
+    <div class="guarantee">
+      <div class="container">
+        <div class="row">
+          <div class="guarantee-item col-sm-4">
+            <div class="item-content">
+              <div class="content-icon"></div>
+              <div class="content-detail">
+                <div class="detail-title">联合担保</div>
+                <p class="detail-text">
+                  本次交易由COINPAY和服务商提供联合担保
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="guarantee-item col-sm-4">
+            <div class="item-content">
+              <div class="content-icon"></div>
+              <div class="content-detail">
+                <div class="detail-title">保证金</div>
+                <p class="detail-text">
+                  服务商已向COINPAY缴纳足额保证金
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="guarantee-item col-sm-4">
+            <div class="item-content">
+              <div class="content-icon"></div>
+              <div class="content-detail">
+                <div class="detail-title">
+                  托管锁定
+                </div>
+                <p class="detail-text">
+                  服务商出售USDT已托管锁定在COINPAY
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="container">
+        Copyrights © 2018. All Rights
+        Reserved by -istpaytech.com
+      </div>
+    </footer>
+  </div>
+</div>
+
+</body>
+</html>
+<script src="js/index.js"></script>
+<script>
+  $(function () {
+    new ClipboardJS('.copy') // 文本的复制
+
+    /* USDT */
+    var $showHint = $('.show-hint')
+    /*提示文本*/
+    var $showText = $('.remit-text')
+    /*收起*/
+    var $fewer = $('.fewer')
+
+    $($showHint).mouseenter(function () {
+      $($showText).css('display', 'block')
+    })
+
+    $($fewer).mouseenter(function () {
+      $($showText).css('display', 'none')
+    })
+
+    /*prompt操作*/
+    $(".btn2").click(function () {
+      HSJ.util.alert.common({status: "success", message: "已提醒服务商收款"})
+      /*点击之后不能点击*/
+      $(this).attr('disabled', 'disabled')
+    })
+  })
+</script>

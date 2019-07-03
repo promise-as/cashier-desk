@@ -1,0 +1,94 @@
+@charset "UTF-8";
+/*紫色主题*/
+/*导航栏*/
+.nav-bar { background: #9418E3; border-radius: 0; /*导航栏右边图标*/ }
+
+.nav-bar .phone .phone-icon { background: url("../images/icon/violet/pc/icon_dh.png") no-repeat; }
+
+/*确认向商户支付USDT*/
+.merchant-msg .submit { background: #9418E3; }
+
+.merchant-msg .next { border: 1px solid #9418E3; color: #9418E3; }
+
+/*支付USDT*/
+.merchant-header .header-title span { color: #9418E3; border-left: 4px solid #9418E3; }
+
+.merchant-header .header-content .content-hint p strong { color: #D7584E; }
+
+.merchant-header .header-content .content-hint .remit-text .fewer { color: #9418E3; }
+
+/*订单信息*/
+.order-msg .order-header .header-title span { color: #9418E3; border-left: 4px solid #9418E3; }
+
+/*进行中的订单*/
+.progress-order .container .order-header .header-title span { color: #9418E3; border-left: 4px solid #9418E3; }
+
+.progress-order .container .order-tab .tab-content .examine { background: #9418E3; }
+
+/*联合担保*/
+.guarantee .guarantee-item .item-content .content-icon { background: url("../images/icon/violet/pc/icon_union.png") no-repeat; background-size: contain; }
+
+.guarantee .guarantee-item:nth-child(2) .item-content .content-icon { background: url("../images/icon/violet/pc/icon_ser.png") no-repeat; background-size: contain; }
+
+.guarantee .guarantee-item:nth-child(3) .item-content .content-icon { background: url("../images/icon/violet/pc/icon_lock.png") no-repeat; background-size: contain; }
+
+/*支付方式*/
+.payment { /*服务商信息*/ /*支付提醒*/ }
+
+.payment .payment-header .header-title span { color: #9418E3; border-left: 4px solid #9418E3; }
+
+.payment .payment-tab { /*按钮*/ }
+
+.payment .payment-tab .tab-head .head-item { border: 1px solid #9418E3; }
+
+.payment .payment-tab .tab-head .head-item span { color: #9418E3; }
+
+.payment .payment-tab .tab-head .head-item.tab-active { background-color: #9418E3; border: 1px solid #9418E3; }
+
+.payment .payment-tab .tab-content { /*备注码*/ /*银行种类*/ }
+
+.payment .payment-tab .tab-content .content-usermsg .usermsg-hint .hint-text strong { color: #9418E3; }
+
+.payment .payment-tab .tab-content .content-usermsg .usermsg-detail .copy { color: #9418E3; border: 1px solid #9418E3; }
+
+.payment .payment-tab .tab-content .usermsg-hint .hint-text strong { color: #9418E3; }
+
+.payment .payment-tab .tab-content .content-remark .remark-detail .detail > span { color: #9418E3; }
+
+.payment .payment-tab .tab-content .content-remark .remark-detail .detail > input { color: #9418E3; }
+
+.payment .payment-tab .tab-content .bank-types .bank-active { border: 1px solid #9418E3; }
+
+.payment .payment-tab .hint-btn .btn1 { color: #9418E3; border: 1px solid #9418E3; }
+
+.payment .payment-tab .hint-btn .btn2 { background-color: #9418E3; }
+
+.payment .facilitator-msg .payment-header .header-title span { color: #9418E3; border-left: 4px solid #9418E3; }
+
+.payment .main-remind .payment-header .header-title span { color: #9418E3; border-left: 4px solid #9418E3; }
+
+/*进行中的订单 PC端*/
+.progress-order-pc .container { /*进行中的订单 tab*/ }
+
+.progress-order-pc .container .order-header .header-title span { color: #9418E3; border-left: 4px solid #9418E3; }
+
+.progress-order-pc .container .order-tab .tab-content .examine { background-color: #9418E3; }
+
+/*服务商信息*/
+.facilitator-msg .payment-header .header-title span { color: #9418E3; border-left: 4px solid #9418E3; }
+
+/*支付提醒*/
+.main-remind .payment-header .header-title span { color: #9418E3; border-left: 4px solid #9418E3; }
+
+/*跳转至 USDT购买 页面*/
+.skip .wrap .content span { color: #9418E3; }
+
+/*蒙版*/
+.main-mask .wrap .remit-modal .model-content .content-remind { color: #1E1E1E; font-size: 24px; }
+
+.main-mask .wrap .remit-modal .model-content > p > span { color: #9418E3; }
+
+.main-mask .wrap .remit-modal .untransfer-content .untransfer-btnwarp .btn1 { background-color: #9418E3; }
+
+/*提示框头部背景*/
+.bootstrap-dialog.type-success .modal-header { background-color: #9418E3; }
